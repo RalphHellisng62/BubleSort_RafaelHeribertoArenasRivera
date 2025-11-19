@@ -80,4 +80,13 @@ public class BubleSort {
             if (!intercambio) break; // Ojo! si no hubo intercambio, el array ya está ordenado
         }
     }
+
+     // Esto imprime el arreglo
+    public static void imprimirArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
 }
