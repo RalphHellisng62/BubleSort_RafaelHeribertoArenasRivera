@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 public class BubleSort {
     // Iniciamos con la construcción de un main
 
@@ -21,5 +24,20 @@ public class BubleSort {
         } else {
             System.out.println("No se pudo leer el archivo.");
         }  
+    }
+
+    // Aqui se crea la funcion para leer los numeros del archivo
+    public static int[] leerArchivo(String nombreArchivo) {
+        try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            int count = 0;
+
+            // Primero se contaran cuántos números hay
+            while ((linea = br.readLine()) != null) {
+                count++;
+            }
+
+            int[] numeros = new int[count];
+            br.close();
     }
 }
