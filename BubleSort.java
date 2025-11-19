@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class BubleSort {
     // Iniciamos con la construcción de un main
@@ -39,5 +40,21 @@ public class BubleSort {
 
             int[] numeros = new int[count];
             br.close();
+
+             //  Aqui vuelve a leer nuevamente para guardar los datos
+            BufferedReader br2 = new BufferedReader(new FileReader(nombreArchivo));
+            int i = 0;
+            while ((linea = br2.readLine()) != null) {
+                numeros[i] = Integer.parseInt(linea.trim());
+                i++;
+            }
+            br2.close();
+
+            return numeros;
+
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("⚠ Error al leer el archivo: " + e.getMessage());
+            return null;
+        }
     }
 }
