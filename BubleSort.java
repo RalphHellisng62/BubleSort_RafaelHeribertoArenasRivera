@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class BubleSort {
@@ -89,4 +91,15 @@ public class BubleSort {
         System.out.println();
     }
 
+    // Construcción de los numeros ordenados en nuevo archivo
+    public static void escribirArchivo(int[] arr, String nombreArchivo) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo))) {
+            for (int num : arr) {
+                bw.write(num + "");
+                bw.newLine();
+            }
+        } catch (IOException e) { // catch por algun error en el archivo
+            System.out.println("Error al escribir el archivo: " + e.getMessage());
+        }
+    }
 }
